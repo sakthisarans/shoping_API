@@ -1,0 +1,21 @@
+server:
+  port: 81
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: login
+          uri: http://${logindomain:localhost}:${loginport:8080}
+          predicates:
+            - Path=/endpoint/**
+        - id: product
+          uri: http://${productdomain:localhost}:${productport:8081}
+          predicates:
+            - Path=/product/**
+        - id: user
+          uri: http://${userdomain:localhost}:${userport:8082}
+          predicates:
+            - Path=/user/**,/merchent/**
+#            - Path=/merchent/**
+

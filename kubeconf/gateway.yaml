@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shoopinggateway
+spec:
+  selector:
+    matchLabels:
+      app: shoopinggateway
+  template:
+    metadata:
+      labels:
+        app: shoopinggateway
+    spec:
+      containers:
+      - name: shoopinggateway
+        image: sakthisaran/gateway:0.2
+        env:
+        - name: logindomain
+          value: "shoopinglogin"
+        - name: loginport
+          value: "80"
+        - name: productdomain
+          value: "shoopingproduct"
+        - name: productport
+          value: "80"
+        - name: userdomain
+          value: "shoopinguser"
+        - name: userport
+          value: "80"
+        resources:
+          limits:
+            memory: "500Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 81
