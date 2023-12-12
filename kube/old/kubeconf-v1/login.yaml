@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shoopinglogin
+spec:
+  selector:
+    matchLabels:
+      app: shoopinglogin
+  template:
+    metadata:
+      labels:
+        app: shoopinglogin
+    spec:  
+      containers:
+      - name: shoopinglogin
+        image: sakthisaran/shoppingapp_loginservice:1.0
+        env:
+        - name: dbdomain
+          value: "mongodb"
+        - name: applicationport
+          value: "80" 
+        resources:
+          limits:
+            memory: "500Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80

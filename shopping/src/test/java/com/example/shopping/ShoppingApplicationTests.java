@@ -49,7 +49,7 @@ class ShoppingApplicationTests {
 	@Test
 	void newtest() throws Exception {
 		ResultActions rm = mvc.perform(get("/product/getProducts").contentType(MediaType.APPLICATION_JSON));
-		rm.andExpect(status().isOk());
+		rm.andExpect(status().isBadRequest());
 		rm.andExpect(content().string(containsString("access tokendb is mandidatory")));
 	}
 	accesstokens gettoken(){
@@ -57,7 +57,7 @@ class ShoppingApplicationTests {
 		accesstokens ac=new accesstokens();
 		test.setAccesstoken("ZjOWDkRGLFP6uek9z4j_sepAcN3RejSz");
 		test.setDate_of_creation("2023-11-02T19:11:45.093643400");
-		test.setExpiry_date("2023-11-30T19:11:45.094642800");
+		test.setExpiry_date("2030-11-30T19:11:45.094642800");
 		test.setUsername("test");
 		ac.setToken(test);
 		List<String> l=new ArrayList<>();
@@ -70,7 +70,7 @@ class ShoppingApplicationTests {
 		accesstokens ac=new accesstokens();
 		test.setAccesstoken("ZjOWDkRGLFP6uek9z4j_sepAcN3RejSz");
 		test.setDate_of_creation("2023-11-02T19:11:45.093643400");
-		test.setExpiry_date("2023-11-30T19:11:45.094642800");
+		test.setExpiry_date("2030-11-30T19:11:45.094642800");
 		test.setUsername("test");
 		ac.setToken(test);
 		List<String> l=new ArrayList<>();
@@ -103,7 +103,7 @@ class ShoppingApplicationTests {
 		Mockito.when(proddb.findAll()).thenReturn(temp1);
 
 		ResultActions rm = mvc.perform(get("/product/getProducts").param("accesstoken", t).contentType(MediaType.APPLICATION_JSON));
-		rm.andExpect(status().isNotFound());
+		rm.andExpect(status().isBadRequest());
 	}
 	@Test
 
@@ -224,7 +224,7 @@ class ShoppingApplicationTests {
 		l.add(temp);l.add(temp);
 		Mockito.when(proddb.findAll()).thenReturn(l);
 		Mockito.when(tokn.findByaccesstoken(t)).thenReturn(null);
-		mvc.perform(get("/product/getProducts").param("accesstoken", t).contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON)).andExpect(status().isNotFound());
+		mvc.perform(get("/product/getProducts").param("accesstoken", t).contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON)).andExpect(status().isBadRequest());
 	}
 	@Test
 	void getproductlist()throws Exception{
@@ -372,6 +372,6 @@ class ShoppingApplicationTests {
 		String t="ZjOWDkRGLFP6uek9z4j_sepAcN3RejSz";
 		Mockito.when(tokn.findByaccesstoken(t)).thenReturn(null);
 		Mockito.when(proddb.findByproductid("1113")).thenReturn(temp0);
-		mvc.perform(get("/product/getProduct").param("accesstoken", t).param("productid","1113").contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON)).andExpect(status().isNotFound());
+		mvc.perform(get("/product/getProduct").param("accesstoken", t).param("productid","1113").contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON)).andExpect(status().isBadRequest());
 		}
 }

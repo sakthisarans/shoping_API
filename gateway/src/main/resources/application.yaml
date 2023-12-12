@@ -1,6 +1,9 @@
 server:
   port: 81
-
+management:
+  endpoint:
+    health:
+      show-details: always
 spring:
   cloud:
     gateway:
@@ -17,5 +20,4 @@ spring:
           uri: http://${userdomain:localhost}:${userport:8082}
           predicates:
             - Path=/user/**,/merchent/**
-#            - Path=/merchent/**
 

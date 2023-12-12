@@ -1,0 +1,15 @@
+kubectl apply -f .\gateway.yaml -f .\gatewayservice.yaml -f .\login.yaml -f .\loginservice.yaml -f .\mongodb.yaml -f .\mongoservice.yaml -f .\product.yaml -f .\productservice.yaml -f .\user.yaml -f .\userservice.yaml
+
+
+k6 test cms
+
+k6 run -e hostname=http://127.0.0.1:62819 -e accesstoken=EvOxFz5nw7oau6M7j9O8vbGqhrF0paYR .\test.js
+
+
+visualizer
+
+python .\visualizer.py .\result.json 
+
+mount volume 
+
+minikube mount E:/mongofolder:/mnt/mongo
