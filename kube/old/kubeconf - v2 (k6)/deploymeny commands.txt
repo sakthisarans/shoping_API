@@ -1,0 +1,15 @@
+kubectl apply -f .\persistentvolume.yaml -f .\persistentvolumeclaim.yaml -f .\persistentvolumeclainconfig.yaml -f .\persistentvolumeconfig.yaml
+
+
+ kubectl apply -f .\gateway.yaml -f .\gatewayservice.yaml -f .\login.yaml -f .\loginservice.yaml -f .\mongodb.yaml -f .\mongoservice.yaml -f .\product.yaml -f .\productservice.yaml -f .\user.yaml -f .\userservice.yaml -f .\scalelogin.yaml -f .\scaleproduct.yaml -f .\scaleuser.yaml  
+
+
+k6 test cms
+
+k6 run -e hostname=http://127.0.0.1:63397 -e accesstoken=EvOxFz5nw7oau6M7j9O8vbGqhrF0paYR .\test.js
+
+
+visualizer
+
+python .\visualizer.py .\result.json 
+

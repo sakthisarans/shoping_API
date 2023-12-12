@@ -61,7 +61,7 @@ public class ProductController {
     @PostMapping("/addProduct")
     public ResponseEntity<?> addproduct(@Valid @RequestBody products product,@RequestParam(defaultValue = "") String accesstoken){
         if(accesstoken.isEmpty()){
-            return new ResponseEntity<>("access tokendb is mandidatory",HttpStatus.OK);
+            return new ResponseEntity<>("access tokendb is mandidatory",HttpStatus.BAD_REQUEST);
         }
         else if((boolean)valid.tokenvalidator(accesstoken)[0]) {
             if (((List<String>) valid.tokenvalidator(accesstoken)[2]).contains("merchant")) {
@@ -79,13 +79,13 @@ public class ProductController {
             }
         }
         else{
-            return new ResponseEntity<>("invalid AccessToken",HttpStatus.OK);
+            return new ResponseEntity<>("invalid AccessToken",HttpStatus.BAD_REQUEST);
         }
     }
     @PostMapping("/addProducts")
     public ResponseEntity<?> addproducts(@Valid @RequestBody multiproduct productsdata,@RequestParam(defaultValue = "") String accesstoken) {
         if(accesstoken.isEmpty()){
-            return new ResponseEntity<>("access tokendb is mandidatory",HttpStatus.OK);
+            return new ResponseEntity<>("access tokendb is mandidatory",HttpStatus.BAD_REQUEST);
         }
         else if((boolean)valid.tokenvalidator(accesstoken)[0]) {
             if (((List<String>) valid.tokenvalidator(accesstoken)[2]).contains("merchant")) {
@@ -112,14 +112,14 @@ public class ProductController {
             }
         }else{
             System.out.println((boolean)valid.tokenvalidator(accesstoken)[0]);
-            return new ResponseEntity<>("invalid AccessToken",HttpStatus.OK);
+            return new ResponseEntity<>("invalid AccessToken",HttpStatus.BAD_REQUEST);
         }
     }
     @GetMapping("/getProduct")
     public ResponseEntity<?> getProduct(@RequestParam(defaultValue = "")String productid,@RequestParam(defaultValue = "") String accesstoken){
        System.out.println(productid);
         if(accesstoken.isEmpty()){
-            return new ResponseEntity<>("access tokendb is mandidatory",HttpStatus.OK);
+            return new ResponseEntity<>("access tokendb is mandidatory",HttpStatus.BAD_REQUEST);
         }
         else if((boolean)valid.tokenvalidator(accesstoken)[0]) {
             if(!productid.isEmpty()){
@@ -132,7 +132,7 @@ public class ProductController {
                 return new ResponseEntity<>("productid is madidatory", HttpStatus.FORBIDDEN);
             }
         }else {
-            return new ResponseEntity<>("invalid AccessToken", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("invalid AccessToken", HttpStatus.BAD_REQUEST);
         }
     }
     @GetMapping("/getProducts")
@@ -140,19 +140,20 @@ public class ProductController {
         System.out.println(valid.tokenvalidator(accesstoken).toString());
         logger.info("-----------"+accesstoken);
         if(accesstoken.isEmpty()||accesstoken==null||accesstoken.equals("")){
-            return new ResponseEntity<>("access tokendb is mandidatory",HttpStatus.OK);
+            return new ResponseEntity<>("access tokendb is mandidatory",HttpStatus.BAD_REQUEST);
         }
         else if((boolean)valid.tokenvalidator(accesstoken)[0]) {
             return new ResponseEntity<>(productdb.findAll(), HttpStatus.OK);
         }else {
-            return new ResponseEntity<>("invalid AccessToken", HttpStatus.NOT_FOUND);
+            System.out.println((boolean)valid.tokenvalidator(accesstoken)[0]);
+            return new ResponseEntity<>("invalid AccessToken", HttpStatus.BAD_REQUEST);
         }
     }
     @PostMapping("/getProductlist")
     public ResponseEntity<?> getProductslist(@RequestParam(required = false,defaultValue = "") String accesstoken,@RequestBody List<String> ids){
         System.out.println("----------------------------"+accesstoken);
         if(accesstoken.isEmpty()||accesstoken==null||accesstoken.equals("")){
-            return new ResponseEntity<>("access tokendb is mandidatory",HttpStatus.OK);
+            return new ResponseEntity<>("access tokendb is mandidatory",HttpStatus.BAD_REQUEST);
         }
         else if((boolean)valid.tokenvalidator(accesstoken)[0]) {
             System.out.println(ids);
@@ -165,7 +166,7 @@ public class ProductController {
     @PostMapping("/reducecount")
     public ResponseEntity<?> reduceount(@RequestParam(required = false,defaultValue = "") String accesstoken, @RequestBody List<reducecount> rc){
         if(accesstoken.isEmpty()||accesstoken==null||accesstoken.equals("")){
-            return new ResponseEntity<>("access tokendb is mandidatory",HttpStatus.OK);
+            return new ResponseEntity<>("access tokendb is mandidatory",HttpStatus.BAD_REQUEST);
         }
         else if((boolean)valid.tokenvalidator(accesstoken)[0]) {
             List<String> temp=new ArrayList<>();
@@ -206,6 +207,11 @@ public class ProductController {
         else {
             return new ResponseEntity<>("invalid AccessToken", HttpStatus.BAD_REQUEST);
         }
+    }
+    @GetMapping("/test")
+    public ResponseEntity<?> reduceount(){
+        System.out.println("new");
+        return ResponseEntity.ok("");
     }
 
 

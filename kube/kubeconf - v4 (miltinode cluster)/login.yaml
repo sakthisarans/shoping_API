@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shoopinglogin
+spec:
+  selector:
+    matchLabels:
+      app: shoopinglogin
+  template:
+    metadata:
+      labels:
+        app: shoopinglogin
+    spec:  
+      nodeSelector:
+        roll: worker
+      containers:
+      - name: shoopinglogin
+        image: sakthisaran/shoppingapp_loginservice:2.0
+        startupProbe:
+          httpGet:
+            path: /actuator/health
+            port: 80
+          initialDelaySeconds: 130
+          failureThreshold: 1
+          periodSeconds: 10
+          timeoutSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /actuator/health
+            port: 80
+            httpHeaders:
+            - name: Application
+              value: application/json
+          initialDelaySeconds: 10
+          periodSeconds: 5
+          timeoutSeconds: 10
+          failureThreshold: 1
+
+        env:
+        - name: dbdomain
+          value: "mongodb"
+        - name: applicationport
+          value: "80" 
+        resources:
+          limits:
+            memory: "500Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80

@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shoopingproduct
+spec:
+  selector:
+    matchLabels:
+      app: shoopingproduct
+  template:
+    metadata:
+      labels:
+        app: shoopingproduct
+    spec:  
+      containers:
+      - name: shoopingproduct
+        image: sakthisaran/shoppingapi_productservice:1.0
+        env:
+        - name: dbdomain
+          value: "mongodb"
+        - name: applicationport
+          value: "80" 
+        resources:
+          limits:
+            memory: "500Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80

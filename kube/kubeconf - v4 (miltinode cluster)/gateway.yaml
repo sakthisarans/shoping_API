@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shoopinggateway
+spec:
+  selector:
+    matchLabels:
+      app: shoopinggateway
+  template:
+    metadata:
+      labels:
+        app: shoopinggateway
+    spec:
+      nodeSelector:
+        roll: worker
+      containers:
+      - name: shoopinggateway
+        image: sakthisaran/gateway:2.0
+        startupProbe:
+          httpGet:
+            path: /actuator/health
+            port: 81
+          initialDelaySeconds: 130
+          failureThreshold: 1
+          periodSeconds: 10
+          timeoutSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /actuator/health
+            port: 81
+            httpHeaders:
+            - name: Application
+              value: application/json
+          initialDelaySeconds: 10
+          # restartPolicy: Never
+          periodSeconds: 5
+          timeoutSeconds: 10
+          failureThreshold: 1
+        env:
+        - name: logindomain
+          value: "shoopinglogin"
+        - name: loginport
+          value: "80"
+        - name: productdomain
+          value: "shoopingproduct"
+        - name: productport
+          value: "80"
+        - name: userdomain
+          value: "shoopinguser"
+        - name: userport
+          value: "80"
+        resources:
+          limits:
+            memory: "500Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 81
