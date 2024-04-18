@@ -1,0 +1,794 @@
+{
+	"info": {
+		"_postman_id": "5339a1f7-2845-456d-b5b3-41d8c580bb7c",
+		"name": "shopping api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29759427"
+	},
+	"item": [
+		{
+			"name": "sign out",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/endpoint/signout?accesstoken=W-T7Lwj-v0LawElRQ2TdWzsUVJvI7cnI",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"endpoint",
+						"signout"
+					],
+					"query": [
+						{
+							"key": "accesstoken",
+							"value": "W-T7Lwj-v0LawElRQ2TdWzsUVJvI7cnI"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"sakthisaran\",\n    \"lastName\": \"Test\",\n    \"requestType\": \"SignUp\", \n    \"phoneNumber\": \"98989898989\",\n    \"email\": \"sakthisaransss57@gmail.com\",\n    \"userType\": [\"member\"],\n    \"siteId\": \"5ebb27df-a2e6-40d8-95a2-6da486737327\",\n    \"customerId\": \"dcf1687d-c466-4992-9dcf-b6ea3ab87007\",\n    \"password\": \"qwertyuiop#S5\",\n    \"accessCode\": \"\",\n    \"source\": \"ACCESS-CODE\",\n    \"countryCode\": \"+91\",\n    \"dealsAndDiscountsNewsLetters\": false,\n    \"acceptAgreement\": true,\n    \"multiChannelSource\": \"ACCESS-CODE\",\n    \"dontHaveAccessCode\": true,\n    \"sourceFrom\": \"web\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:59282/endpoint/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "59282",
+					"path": [
+						"endpoint",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"siteId\": \"5ebb27df-a2e6-40d8-95a2-6da486737327\",\n    \"requestType\": \"SignIn\",\n    \"email\": \"sakthisaransss57@gmail.com\",\n    \"password\": \"qwertyuiop#S5\",\n    \"deviceFingerPrint\": {\n        \"deviceFingerPrintId\": \"95ae54c843da5c42e72c2d525ab6411bMac/iOSChrome108.0.0.0\",\n        \"browserInfo\": {\n            \"browserName\": \"Chrome\",\n            \"fullVersion\": \"117.0.0.2\",\n            \"majorVersion\": \"117\",\n            \"userAgent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36\",\n            \"url\": \"https://app.mondee.com/admin/enroll/login\",\n            \"ipAddress\": \"152.58.232.127\",\n            \"os\": \"Mac/iOS\",\n            \"deviceName\": \"Desktop_MAC\",\n            \"deviceType\": \"Web\"\n        },\n        \"ipAddress\": \"152.58.232.127\",\n        \"fingerPrintId\": \"db6ec3639bdf6d72e2ff51f0bf5e8dba\"\n    },\n    \"domain\": \"app.mondee.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:59282/endpoint/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "59282",
+					"path": [
+						"endpoint",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n      \"images\": {\r\n        \"thumbnail1\": \"https://res.cloudinary.com/dddd9bezd/image/upload/v1696486625/Products/25-Under-Graduate-Business-Management_g6c3d4.jpg\"\r\n      },\r\n      \"subCategory\": \"Faculty\",\r\n      \"taxExempt\": false,\r\n      \"available\": true,\r\n      \"description\": \"\",\r\n      \"discountAmount\": 0,\r\n      \"active\": true,\r\n      \"discountPercentage\": 0,\r\n      \"n\": 1,\r\n      \"name\": \"S10\",\r\n      \"currency\": \"AED\",\r\n      \"attributes\": {\r\n        \"Slot_Duration\": \"60\",\r\n        \"Capacity\": \"6\",\r\n        \"MAXIMUM_SLOT_DUERATION\": \"9\",\r\n        \"order\": \"20\",\r\n        \"Location\": \"Building J Second Floor\"\r\n      },\r\n      \"productid\": \"1113\",\r\n      \"category\": \"Library Meeting Rooms\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:59282/product/addProduct?accesstoken=SwWerl2YND3MIZFErexW3f2ACgIPQ1ft",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "59282",
+					"path": [
+						"product",
+						"addProduct"
+					],
+					"query": [
+						{
+							"key": "accesstoken",
+							"value": "6538e37f8de2132f3d1ec0a8",
+							"disabled": true
+						},
+						{
+							"key": "accesstoken",
+							"value": "SwWerl2YND3MIZFErexW3f2ACgIPQ1ft"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add multi product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"products\": [\r\n        {\r\n            \"images\": {\r\n                \"thumbnail1\": \"https://res.cloudinary.com/dddd9bezd/image/upload/v1696486640/Products/25-Under-Graduate-Business-Management_r788gz.jpg\"\r\n            },\r\n            \"subCategory\": \"Student\",\r\n            \"taxExempt\": false,\r\n            \"available\": true,\r\n            \"description\": \"\",\r\n            \"discountAmount\": 0,\r\n            \"active\": true,\r\n            \"discountPercentage\": 0,\r\n            \"price\": 1,\r\n            \"name\": \"F3\",\r\n            \"currency\": \"AED\",\r\n            \"attributes\": {\r\n                \"Slot_Duration\": \"60\",\r\n                \"Capacity\": \"4\",\r\n                \"MAXIMUM_SLOT_DUERATION\": \"3\",\r\n                \"order\": \"3\",\r\n                \"Location\": \"Building J First Floor\"\r\n            },\r\n            \"stockcount\":300,\r\n            \"productid\": \"1356991003871010\",\r\n            \"category\": \"Group Study Room\",\r\n            \"activationDate\": \"10/11/2023 12:00:00\"\r\n        },\r\n        {\r\n            \"images\": {\r\n                \"thumbnail1\": \"https://res.cloudinary.com/dddd9bezd/image/upload/v1696486654/Products/25-Under-Graduate-Business-Management_laevrt.jpg\"\r\n            },\r\n            \"subCategory\": \"Faculty\",\r\n            \"taxExempt\": false,\r\n            \"available\": true,\r\n            \"description\": \"\",\r\n            \"discountAmount\": 0,\r\n            \"active\": true,\r\n            \"discountPercentage\": 0,\r\n            \"price\": 1,\r\n            \"name\": \"S11\",\r\n            \"currency\": \"AED\",\r\n            \"attributes\": {\r\n                \"Slot_Duration\": \"60\",\r\n                \"Capacity\": \"12\",\r\n                \"MAXIMUM_SLOT_DUERATION\": \"9\",\r\n                \"order\": \"21\",\r\n                \"Location\": \"Building J Second Floor\"\r\n            },\r\n            \"productid\": \"1356991003871021\",\r\n            \"category\": \"Library Meeting Rooms\",\r\n             \"stockcount\":200,\r\n            \"activationDate\": \"10/11/2023 12:00:00\"\r\n        },\r\n        {\r\n            \"images\": {\r\n                \"thumbnail1\": \"https://res.cloudinary.com/dddd9bezd/image/upload/v1696486668/Products/25-Under-Graduate-Business-Management_ijuum2.jpg\"\r\n            },\r\n            \"subCategory\": \"Student\",\r\n            \"taxExempt\": false,\r\n            \"available\": true,\r\n            \"description\": \"\",\r\n            \"discountAmount\": 0,\r\n            \"active\": true,\r\n            \"discountPercentage\": 0,\r\n            \"price\": 1,\r\n            \"name\": \"F4\",\r\n            \"currency\": \"AED\",\r\n            \"attributes\": {\r\n                \"Slot_Duration\": \"60\",\r\n                \"Capacity\": \"4\",\r\n                \"MAXIMUM_SLOT_DUERATION\": \"3\",\r\n                \"order\": \"4\",\r\n                \"Location\": \"Building J First Floor\"\r\n            },\r\n            \"productid\": \"1356991003871011\",\r\n             \"stockcount\":20,\r\n            \"category\": \"Group Study Room\",\r\n            \"activationDate\": \"10/11/2023 12:00:00\"\r\n        },\r\n        {\r\n            \"images\": {\r\n                \"thumbnail1\": \"https://res.cloudinary.com/dddd9bezd/image/upload/v1696486625/Products/25-Under-Graduate-Business-Management_g6c3d4.jpg\"\r\n            },\r\n            \"subCategory\": \"Faculty\",\r\n            \"taxExempt\": false,\r\n            \"available\": true,\r\n            \"description\": \"\",\r\n            \"discountAmount\": 0,\r\n            \"active\": true,\r\n            \"discountPercentage\": 0,\r\n            \"n\": 1,\r\n            \"name\": \"S10\",\r\n            \"currency\": \"AED\",\r\n            \"attributes\": {\r\n                \"Slot_Duration\": \"60\",\r\n                \"Capacity\": \"6\",\r\n                \"MAXIMUM_SLOT_DUERATION\": \"9\",\r\n                \"order\": \"20\",\r\n                \"Location\": \"Building J Second Floor\"\r\n            },\r\n            \"productid\": \"1112\",\r\n            \"category\": \"Library Meeting Rooms\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:59282/product/addProducts?accesstoken=SwWerl2YND3MIZFErexW3f2ACgIPQ1ft",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "59282",
+					"path": [
+						"product",
+						"addProducts"
+					],
+					"query": [
+						{
+							"key": "accesstoken",
+							"value": "SwWerl2YND3MIZFErexW3f2ACgIPQ1ft"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:59282/product/getProduct?accesstoken=697--WnqCUiJ5M3kT_eGzzGlf9F1EmDB&productid=1112",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "59282",
+					"path": [
+						"product",
+						"getProduct"
+					],
+					"query": [
+						{
+							"key": "accesstoken",
+							"value": "697--WnqCUiJ5M3kT_eGzzGlf9F1EmDB"
+						},
+						{
+							"key": "productid",
+							"value": "1112"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:59282/product/getProducts?accesstoken=697--WnqCUiJ5M3kT_eGzzGlf9F1EmDB",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "59282",
+					"path": [
+						"product",
+						"getProducts"
+					],
+					"query": [
+						{
+							"key": "accesstoken",
+							"value": "697--WnqCUiJ5M3kT_eGzzGlf9F1EmDB"
+						},
+						{
+							"key": "productid",
+							"value": "1112",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add to cart",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:59282/user/addtocart?accesstoken=SwWerl2YND3MIZFErexW3f2ACgIPQ1ft&productid=1356991003871011",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "59282",
+					"path": [
+						"user",
+						"addtocart"
+					],
+					"query": [
+						{
+							"key": "accesstoken",
+							"value": "697--WnqCUiJ5M3kT_eGzzGlf9F1EmDB",
+							"description": "member",
+							"disabled": true
+						},
+						{
+							"key": "cartname",
+							"value": "wishlist3",
+							"disabled": true
+						},
+						{
+							"key": "productid",
+							"value": "1356991003871021",
+							"description": "member",
+							"disabled": true
+						},
+						{
+							"key": "productid",
+							"value": "1356991003871010",
+							"description": "member",
+							"disabled": true
+						},
+						{
+							"key": "accesstoken",
+							"value": "SwWerl2YND3MIZFErexW3f2ACgIPQ1ft",
+							"description": "merchant"
+						},
+						{
+							"key": "productid",
+							"value": "1356991003871011",
+							"description": "merchant"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "clear cart",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:59282/user/clearcart?accesstoken=697--WnqCUiJ5M3kT_eGzzGlf9F1EmDB&cartname=wishlist3&removeitem=false",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "59282",
+					"path": [
+						"user",
+						"clearcart"
+					],
+					"query": [
+						{
+							"key": "productid",
+							"value": "1116",
+							"disabled": true
+						},
+						{
+							"key": "accesstoken",
+							"value": "697--WnqCUiJ5M3kT_eGzzGlf9F1EmDB"
+						},
+						{
+							"key": "cartname",
+							"value": "wishlist3"
+						},
+						{
+							"key": "removeitem",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get cart",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:59282/user/getcart?accesstoken=SwWerl2YND3MIZFErexW3f2ACgIPQ1ft ",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "59282",
+					"path": [
+						"user",
+						"getcart"
+					],
+					"query": [
+						{
+							"key": "productid",
+							"value": "1114",
+							"disabled": true
+						},
+						{
+							"key": "accesstoken",
+							"value": "SwWerl2YND3MIZFErexW3f2ACgIPQ1ft "
+						},
+						{
+							"key": "cartname",
+							"value": "shopping",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cancell order",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://127.0.0.1:59282/user/cancelorder/hBVdS1JSWFBf?accesstoken=1uKfCy8pH48yraQD0Yu_SLaxeFQ1d9eB",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "59282",
+					"path": [
+						"user",
+						"cancelorder",
+						"hBVdS1JSWFBf"
+					],
+					"query": [
+						{
+							"key": "accesstoken",
+							"value": "1uKfCy8pH48yraQD0Yu_SLaxeFQ1d9eB"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n      \"images\": {\r\n        \"thumbnail1\": \"https://res.cloudinary.com/dddd9bezd/image/upload/v1696486625/Products/25-Under-Graduate-Business-Management_g6c3d4.jpg\"\r\n      },\r\n      \"subCategory\": \"Faculty\",\r\n      \"taxExempt\": false,\r\n      \"available\": true,\r\n      \"description\": \"\",\r\n      \"discountAmount\": 0,\r\n      \"active\": true,\r\n      \"discountPercentage\": 0,\r\n      \"stockcount\":30,\r\n      \"name\": \"S10\",\r\n      \"currency\": \"AED\",\r\n      \"attributes\": {\r\n        \"Location\": \"Building J Second Floor\"\r\n      },\r\n      \"productid\": \"1111\",\r\n      \"category\": \"electronics\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:59282/product/updateProduct/1112?accesstoken=grL-3PzmOHGewDymCvhhdMVnvL-b2wss",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "59282",
+					"path": [
+						"product",
+						"updateProduct",
+						"1112"
+					],
+					"query": [
+						{
+							"key": "accesstoken",
+							"value": "grL-3PzmOHGewDymCvhhdMVnvL-b2wss"
+						},
+						{
+							"key": "productid",
+							"value": "1111",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "checkout",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:59282/user/checkout?accesstoken=SwWerl2YND3MIZFErexW3f2ACgIPQ1ft&cartname=shopping",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "59282",
+					"path": [
+						"user",
+						"checkout"
+					],
+					"query": [
+						{
+							"key": "productid",
+							"value": "1114",
+							"disabled": true
+						},
+						{
+							"key": "accesstoken",
+							"value": "SwWerl2YND3MIZFErexW3f2ACgIPQ1ft"
+						},
+						{
+							"key": "cartname",
+							"value": "shopping"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get product list",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\"1113\",\"1112\",\"1356991003871011\"]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/product/getProductlist?accesstoken=password",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product",
+						"getProductlist"
+					],
+					"query": [
+						{
+							"key": "accesstoken",
+							"value": "password"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "gateway",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/endpoint/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"endpoint",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cancell order",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:59282/user/cancelorder/bvFRTQQYvd9m?accesstoken=Sy6aBMOyC9d3nh4d9MVw_DECGHNIMPp8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "59282",
+					"path": [
+						"user",
+						"cancelorder",
+						"bvFRTQQYvd9m"
+					],
+					"query": [
+						{
+							"key": "accesstoken",
+							"value": "Sy6aBMOyC9d3nh4d9MVw_DECGHNIMPp8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get orders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:59282/user/getorders?accesstoken=SwWerl2YND3MIZFErexW3f2ACgIPQ1ft",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "59282",
+					"path": [
+						"user",
+						"getorders"
+					],
+					"query": [
+						{
+							"key": "accesstoken",
+							"value": "697--WnqCUiJ5M3kT_eGzzGlf9F1EmDB",
+							"disabled": true
+						},
+						{
+							"key": "accesstoken",
+							"value": "SwWerl2YND3MIZFErexW3f2ACgIPQ1ft"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get order",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:59282/user/getorder/hBVdS1JSWFBf?accesstoken=1uKfCy8pH48yraQD0Yu_SLaxeFQ1d9eB",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "59282",
+					"path": [
+						"user",
+						"getorder",
+						"hBVdS1JSWFBf"
+					],
+					"query": [
+						{
+							"key": "accesstoken",
+							"value": "1uKfCy8pH48yraQD0Yu_SLaxeFQ1d9eB"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "merchant myorder",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:59282/merchent/myorder?accesstoken=SwWerl2YND3MIZFErexW3f2ACgIPQ1ft",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "59282",
+					"path": [
+						"merchent",
+						"myorder"
+					],
+					"query": [
+						{
+							"key": "accesstoken",
+							"value": "SwWerl2YND3MIZFErexW3f2ACgIPQ1ft"
+						},
+						{
+							"key": "accesstoken",
+							"value": "697--WnqCUiJ5M3kT_eGzzGlf9F1EmDB",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "stock count",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:57720/product/stockcount/1356991003871010?accesstoken=password",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57720",
+					"path": [
+						"product",
+						"stockcount",
+						"1356991003871010"
+					],
+					"query": [
+						{
+							"key": "accesstoken",
+							"value": "password"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:59282/product/getProduct?accesstoken=PDZtM82Hm2aYj9YgMAAE8N-6gBszKN4L&productid=1113",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "59282",
+					"path": [
+						"product",
+						"getProduct"
+					],
+					"query": [
+						{
+							"key": "accesstoken",
+							"value": "PDZtM82Hm2aYj9YgMAAE8N-6gBszKN4L"
+						},
+						{
+							"key": "productid",
+							"value": "1113"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get cart",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:59282/user/getcart?accesstoken=PDZtM82Hm2aYj9YgMAAE8N-6gBszKN4L",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "59282",
+					"path": [
+						"user",
+						"getcart"
+					],
+					"query": [
+						{
+							"key": "accesstoken",
+							"value": "PDZtM82Hm2aYj9YgMAAE8N-6gBszKN4L"
+						},
+						{
+							"key": "cartname",
+							"value": "shopping",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "my order",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:81/merchent/myorder?accesstoken=PDZtM82Hm2aYj9YgMAAE8N-6gBszKN4L",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "81",
+					"path": [
+						"merchent",
+						"myorder"
+					],
+					"query": [
+						{
+							"key": "accesstoken",
+							"value": "PDZtM82Hm2aYj9YgMAAE8N-6gBszKN4L"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
